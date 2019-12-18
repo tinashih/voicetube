@@ -3,9 +3,9 @@
   border-radius: 4px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.30);
   height: 228px;
-  width: 240px;
-
   position: relative;
+  width: 240px;
+  margin-bottom: 20px;
 
   .audience {
     align-items: center;
@@ -27,14 +27,13 @@
     color: #FFFFFF;
     font-family: SFUIText-Medium;
     font-size: 12px;
+    left: 193px;
     letter-spacing: 0;
     line-height: 16px;
     padding: 4px;
     position: absolute;
-    z-index: 2;
-
     top: 107px;
-    left: 193px;
+    z-index: 2;
   }
 
   .icon {
