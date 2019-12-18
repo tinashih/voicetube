@@ -1,6 +1,12 @@
 <template>
   <div class="home">
-    Home Page
+    <div
+      :key="film.id"
+      class="films"
+      v-for="film in films"
+    >
+      <film :film="film" />
+    </div>
   </div>
 </template>
 
