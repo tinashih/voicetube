@@ -7,27 +7,16 @@ export default {
     Film,
   },
   name: 'home',
+  created() {
+    fetch('https://us-central1-lithe-window-713.cloudfunctions.net/frontendQuiz')
+      .then(response => response.json())
+      .then(({ data }) => {
+        this.films = data;
+      });
+  },
   data() {
     return {
       films: [],
     };
-  },
-  mounted() {
-    this.films = [
-      {
-        id: 52250,
-        thumbnail: 'https://cdn.voicetube.com/assets/thumbnails/QxjsWwgPjwM.jpg',
-        title: '台北人英文真的超強？這部影片告訴你！(中英字幕) (Do They Speak English In Taiwan?)',
-        views: 526816,
-        collectCount: 200,
-        duration: 316,
-        publish: 1519880251,
-        level: 1,
-        captions: [
-          'cht',
-          'en',
-        ],
-      },
-    ];
   },
 };

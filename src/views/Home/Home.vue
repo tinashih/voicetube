@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <div
-      :key="film.id"
-      class="films"
-      v-for="film in films"
-    >
-      <film :film="film" />
+    <div class="films">
+      <film
+        :key="film.id"
+        :film="film"
+        v-for="film in films"
+      />
     </div>
   </div>
 </template>
