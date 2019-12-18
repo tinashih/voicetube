@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'SFUIText-Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SFUIText-Medium'),
+  url('/fonts/SFUIText-Medium.woff')
+  format('woff');
+}
+
+@font-face {
+  font-family: 'NotoSansCJKtc-Regular';
+  src: local('NotoSansCJKtc-Regular'),
+  url('/fonts/NotoSansCJKtc-Regular.otf') format('otf');
+}
+
 html {
   height: 100%;
   width: 100%;
