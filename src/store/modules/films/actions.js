@@ -1,4 +1,5 @@
 import {
+  FILTER_FILMS,
   GET_FILMS,
   GET_FILMS_SUCCEED,
   SORT_FILMS,
@@ -6,6 +7,28 @@ import {
 } from './consistent';
 
 export default {
+  [FILTER_FILMS]: ({ dispatch, state }, payload) => {
+    const {
+      sort,
+      value: {
+        max = null,
+        min,
+      },
+    } = payload;
+
+    const filteredFilms = state.originFilms.filter(({ duration }) => {
+      const smallThan = max ? duration <= max : false;
+      const biggerThan = duration >= min;
+
+      return smallThan && biggerThan;
+    });
+
+    dispatch(SORT_FILMS, {
+      films: filteredFilms,
+      sortByAsc: false,
+      value: sort,
+    });
+  },
   [GET_FILMS]: ({ commit }) => {
     fetch('https://us-central1-lithe-window-713.cloudfunctions.net/frontendQuiz')
       .then(response => response.json())

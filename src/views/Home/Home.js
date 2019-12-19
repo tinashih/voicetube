@@ -65,6 +65,7 @@ export default {
   methods: {
     ...mapActions('films', {
       getFilms: 'GET_FILMS',
+      filterFilms: 'FILTER_FILMS',
       sortFilms: 'SORT_FILMS',
     }),
   },
@@ -89,22 +90,9 @@ export default {
           return;
         }
 
-        const {
-          max,
-          min,
-        } = newVal;
-
-        const filteredFilms = this.originFilms.filter(({ duration }) => {
-          const smallThan = max ? duration <= max : false;
-          const biggerThan = duration >= min;
-
-          return smallThan && biggerThan;
-        });
-
-        this.sortFilms({
-          films: filteredFilms,
-          sortByAsc: false,
-          value: this.sort,
+        this.filterFilms({
+          sort: this.sort,
+          value: newVal,
         });
       }
     },
