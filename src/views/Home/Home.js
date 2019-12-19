@@ -13,7 +13,7 @@ import {
   PUBLISH_TIME,
   TIMES,
   VIEWS,
-} from '../../helper/constant';
+} from '../../helper/consistent';
 
 export default {
   components: {

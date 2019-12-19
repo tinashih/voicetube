@@ -3,10 +3,18 @@ export const PUBLISH_TIME = 'publish';
 export const VIEWS = 'views';
 
 export const TIMES = {
-  FIVE_TO_TEN_MINUTES: 300,
+  FIVE_TO_TEN_MINUTES: {
+    min: 300,
+    max: 600,
+  },
   NO_LIMITED: null,
-  OVER_TEN_MINUTES: 601,
-  UNDER_FOUR_MINUTES: 1,
+  OVER_TEN_MINUTES: {
+    min: 601,
+  },
+  UNDER_FOUR_MINUTES: {
+    min: 1,
+    max: 299,
+  },
 };
 
 export default {
