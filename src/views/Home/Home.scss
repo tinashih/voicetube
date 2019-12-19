@@ -7,10 +7,21 @@
   margin: auto;
   max-width: 1366px;
 
+  .divider {
+    background: #D8D8D8;
+    height: 1px;
+    width: 100%;
+  }
+
   .films {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-top: 21px;
+    width: 100%;
+  }
+
+  .filters {
     width: 100%;
   }
 }

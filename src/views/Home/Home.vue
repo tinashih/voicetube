@@ -21,6 +21,7 @@
         ]"
       />
     </div>
+    <div class="divider" />
     <div class="films">
       <film
         :key="film.id"
