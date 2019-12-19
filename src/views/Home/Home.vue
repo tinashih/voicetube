@@ -3,31 +3,25 @@
     <div class=filters>
       <button-toggle
         title="排序"
-        v-model="model"
-        :options="[
-          {label: '發布時間', value: 'one'},
-          {label: '觀看次數', value: 'two'},
-          {label: '收藏次數', value: 'three'},
-        ]"
+        v-model="sort"
+        :options="getSortOptions"
       />
       <button-toggle
         title="長度"
-        v-model="model2"
-        :options="[
-          {label: '不限', value: 'a'},
-          {label: '4分鐘以下', value: 'b'},
-          {label: '5 - 10分鐘', value: 'c'},
-          {label: '超過10分鐘', value: 'd'},
-        ]"
+        v-model="filterLength"
+        :options="getFilterLengthOptions"
       />
     </div>
     <div class="divider" />
-    <div class="films">
+    <div class="films" v-if="films && films.length">
       <film
         :key="film.id"
         :film="film"
         v-for="film in films"
       />
+    </div>
+    <div class="films" v-else>
+      <p class="no-data">沒有篩選結果</p>
     </div>
   </div>
 </template>

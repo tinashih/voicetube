@@ -19,6 +19,12 @@
     justify-content: flex-start;
     margin-top: 21px;
     width: 100%;
+
+    .no-data {
+      color: var(--light-grey);
+      text-align: center;
+      width: 100%;
+    }
   }
 
   .filters {
