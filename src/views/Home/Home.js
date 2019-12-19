@@ -3,6 +3,13 @@ import {
   Film,
 } from '@/components';
 
+import {
+  COLLECT_COUNT,
+  PUBLISH_TIME,
+  TIMES,
+  VIEWS,
+} from '../../helper/constant';
+
 export default {
   components: {
     ButtonToggle,
@@ -13,19 +20,19 @@ export default {
       return [
         {
           label: '不限',
-          value: null,
+          value: TIMES.NO_LIMITED,
         },
         {
           label: '4分鐘以下',
-          value: 1,
+          value: TIMES.UNDER_FOUR_MINUTES,
         },
         {
           label: '5 - 10分鐘',
-          value: 300,
+          value: TIMES.FIVE_TO_TEN_MINUTES,
         },
         {
           label: '超過10分鐘',
-          value: 601,
+          value: TIMES.OVER_TEN_MINUTES,
         },
       ];
     },
@@ -33,15 +40,15 @@ export default {
       return [
         {
           label: '發布時間',
-          value: 'publish',
+          value: PUBLISH_TIME,
         },
         {
           label: '觀看次數',
-          value: 'views',
+          value: VIEWS,
         },
         {
           label: '收藏次數',
-          value: 'collectCount',
+          value: COLLECT_COUNT,
         },
       ];
     },
@@ -94,6 +101,6 @@ export default {
     };
   },
   mounted() {
-    this.sort = 'publish';
+    this.sort = PUBLISH_TIME;
   },
 };
