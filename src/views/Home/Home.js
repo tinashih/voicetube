@@ -70,7 +70,7 @@ export default {
         const nextIndex = currentIndex + 1 <= this.getFilterLengthOptions.length
           ? currentIndex + 1 : null;
 
-        this.films = this.originFilms.filter(({ duration }) => {
+        const filteredFilms = this.originFilms.filter(({ duration }) => {
           const nextOption = this.getFilterLengthOptions[nextIndex];
           const currentOption = this.getFilterLengthOptions[currentIndex];
           const hasNextValue = nextOption && nextOption.value;
@@ -80,6 +80,8 @@ export default {
 
           return hasNextValue ? (smallThan && biggerThan) : biggerThan;
         });
+
+        this.films = filteredFilms.sort((a, b) => b[this.sort] - a[this.sort]);
       }
     },
   },
