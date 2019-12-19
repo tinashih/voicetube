@@ -1,4 +1,9 @@
 import {
+  mapActions,
+  mapState,
+} from 'vuex';
+
+import {
   ButtonToggle,
   Film,
 } from '@/components';
@@ -16,6 +21,10 @@ export default {
     Film,
   },
   computed: {
+    ...mapState('films', [
+      'films',
+      'originFilms',
+    ]),
     getFilterLengthOptions() {
       return [
         {
@@ -53,16 +62,30 @@ export default {
       ];
     },
   },
+  methods: {
+    ...mapActions('films', {
+      getFilms: 'GET_FILMS',
+      sortFilms: 'SORT_FILMS',
+    }),
+  },
   watch: {
     sort(newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.films.sort((a, b) => b[newVal] - a[newVal]);
+        this.sortFilms({
+          films: this.films,
+          sortByAsc: false,
+          value: newVal,
+        });
       }
     },
     filterLength(newVal, oldVal) {
       if (newVal !== oldVal) {
         if (!newVal) {
-          this.films = this.originFilms.sort((a, b) => b[this.sort] - a[this.sort]);
+          this.sortFilms({
+            films: this.originFilms,
+            sortByAsc: false,
+            value: this.sort,
+          });
           return;
         }
 
@@ -81,25 +104,22 @@ export default {
           return hasNextValue ? (smallThan && biggerThan) : biggerThan;
         });
 
-        this.films = filteredFilms.sort((a, b) => b[this.sort] - a[this.sort]);
+        this.sortFilms({
+          films: filteredFilms,
+          sortByAsc: false,
+          value: this.sort,
+        });
       }
     },
   },
   name: 'home',
   created() {
-    fetch('https://us-central1-lithe-window-713.cloudfunctions.net/frontendQuiz')
-      .then(response => response.json())
-      .then(({ data }) => {
-        this.originFilms = data;
-        this.films = data;
-      });
+    this.getFilms();
   },
   data() {
     return {
-      films: [],
       filterLength: null,
       sort: null,
-      originFilms: [],
     };
   },
   mounted() {
