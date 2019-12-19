@@ -89,19 +89,16 @@ export default {
           return;
         }
 
-        const currentIndex = this.getFilterLengthOptions.findIndex(({ value }) => value === newVal);
-        const nextIndex = currentIndex + 1 <= this.getFilterLengthOptions.length
-          ? currentIndex + 1 : null;
+        const {
+          max,
+          min,
+        } = newVal;
 
         const filteredFilms = this.originFilms.filter(({ duration }) => {
-          const nextOption = this.getFilterLengthOptions[nextIndex];
-          const currentOption = this.getFilterLengthOptions[currentIndex];
-          const hasNextValue = nextOption && nextOption.value;
+          const smallThan = max ? duration <= max : false;
+          const biggerThan = duration >= min;
 
-          const smallThan = hasNextValue ? duration < hasNextValue : null;
-          const biggerThan = duration >= currentOption.value;
-
-          return hasNextValue ? (smallThan && biggerThan) : biggerThan;
+          return smallThan && biggerThan;
         });
 
         this.sortFilms({
