@@ -66,28 +66,6 @@
     bottom: 8px;
     position: absolute;
     right: 8px;
-
-    .caption {
-      background: var(--blue);
-    }
-
-    .level {
-      background: var(--green);
-    }
-
-    .tag {
-      border-radius: 2px;
-      color: #FFFFFF;
-      display: inline-block;
-      font-family: PingFangTC-Medium;
-      font-size: 12px;
-      letter-spacing: -0.03px;
-      padding: 2px 8px;
-
-      &:not(:last-child) {
-        margin-right: 8px;
-      }
-    }
   }
 
   .thumbnail {

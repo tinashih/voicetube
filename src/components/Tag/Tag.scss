@@ -1,0 +1,17 @@
+$background-color: var(--blue) !default;
+$text-color: #FFFFFF !default;
+
+.tag {
+  background: $background-color;
+  border-radius: 2px;
+  color: $text-color;
+  display: inline-block;
+  font-family: PingFangTC-Medium;
+  font-size: 12px;
+  letter-spacing: -0.03px;
+  padding: 2px 8px;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}

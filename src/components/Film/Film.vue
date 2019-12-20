@@ -26,16 +26,15 @@
         </span>
       </div>
       <div class="tags">
-        <span
+        <tag
           :key="caption"
-          class="caption tag"
+          :label="caption | Caption"
           v-for="caption in film.captions"
-        >
-          {{ caption | Caption }}
-        </span>
-        <span class="level tag">
-          {{ film.level | Level }}
-        </span>
+        />
+        <tag
+          :label="film.level | Level"
+          color="green"
+        />
       </div>
     </div>
   </div>
