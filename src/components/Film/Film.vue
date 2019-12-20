@@ -1,14 +1,12 @@
 <template>
-  <div class="film">
+  <card class="film">
     <div class="content__top">
       <img
         :alt="`film thumbnail-${film.id}`"
         :src="film.thumbnail"
         class="thumbnail"
       />
-      <span
-        class="duration"
-      >
+      <span class="duration">
         {{ film.duration | FormatTime }}
       </span>
     </div>
@@ -25,19 +23,20 @@
           {{ film.views }}
         </span>
       </div>
-      <div class="tags">
-        <tag
-          :key="caption"
-          :label="caption | Caption"
-          v-for="caption in film.captions"
-        />
-        <tag
-          :label="film.level | Level"
-          color="green"
-        />
-      </div>
     </div>
-  </div>
+
+    <template #tags>
+      <tag
+        :key="caption"
+        :label="caption | Caption"
+        v-for="caption in film.captions"
+      />
+      <tag
+        :label="film.level | Level"
+        color="green"
+      />
+    </template>
+  </card>
 </template>
 
 <script>

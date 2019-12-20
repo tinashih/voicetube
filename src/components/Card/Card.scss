@@ -1,0 +1,19 @@
+.card {
+  background: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.30);
+  height: 228px;
+  position: relative;
+  width: 240px;
+  overflow: hidden;
+
+  .tags {
+    bottom: 8px;
+    position: absolute;
+    right: 8px;
+  }
+
+  &:first-child {
+    border-radius: 4px 4px 0 0;
+  }
+}

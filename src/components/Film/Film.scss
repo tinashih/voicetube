@@ -1,12 +1,5 @@
 .film {
-  background: #FFFFFF;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.30);
-  height: 228px;
-  position: relative;
-  width: 240px;
   margin: 10px;
-  overflow: hidden;
 
   &:hover {
     .thumbnail {
@@ -29,6 +22,7 @@
     }
 
     &__top {
+      height: 135px;
       overflow: hidden;
     }
   }
@@ -62,17 +56,10 @@
     text-overflow: ellipsis;
   }
 
-  .tags {
-    bottom: 8px;
-    position: absolute;
-    right: 8px;
-  }
-
   .thumbnail {
     -webkit-transform: scale(1);
     -webkit-transition: .3s ease-in-out;
-    border-radius: 4px 4px 0 0;
-    height: 135px;
+    height: 100%;
     transform: scale(1);
     transition: .3s ease-in-out;
     width: 100%;
