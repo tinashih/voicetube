@@ -13,7 +13,7 @@ export const TIMES = {
   },
   UNDER_FOUR_MINUTES: {
     min: 1,
-    max: 299,
+    max: 240,
   },
 };
 
