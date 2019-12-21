@@ -16,9 +16,9 @@
   .films {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     margin-top: 21px;
     width: 100%;
+    overflow: auto;
 
     .no-data {
       color: var(--light-grey);
