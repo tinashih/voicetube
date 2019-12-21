@@ -37,6 +37,7 @@ export default {
       commit(GET_FILMS_SUCCEED, films);
     } catch (error) {
       // Can replace this with show error notification bar.
+      /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
       console.error('Error happened when get films => ', error);
     }
   },

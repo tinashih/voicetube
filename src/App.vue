@@ -8,6 +8,7 @@
 @import './styles/index.scss';
 
 #app {
+  font-family: 'Noto Sans TC', 'Noto Sans', Arial, sans-serif;
   height: 100%;
   width: 100%;
 }

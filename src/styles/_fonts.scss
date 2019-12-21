@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'SFUIText-Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SFUIText-Medium'),
+    url('~@/assets/fonts/SFUIText-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NotoSansCJKtc-Medium';
+  font-style: normal;
+  font-weight: medium;
+  src: local('NotoSansCJKtc-Medium'),
+    url('~@/assets/fonts/NotoSansCJKtc-Medium.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'NotoSansCJKtc-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('NotoSansCJKtc-Regular'),
+    url('~@/assets/fonts/NotoSansCJKtc-Regular.otf') format('otf');
+}
