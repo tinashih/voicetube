@@ -1,4 +1,6 @@
 import Vue from 'vue';
+
+import api from './api';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -8,10 +10,12 @@ import {
   Tag,
 } from './components';
 
-Vue.config.productionTip = false;
+Vue.use(api);
 
 Vue.component('card', Card);
 Vue.component('tag', Tag);
+
+Vue.config.productionTip = false;
 
 new Vue({
   router,

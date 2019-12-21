@@ -5,6 +5,7 @@ import {
   SORT_FILMS,
   SORT_FILMS_DONE,
 } from './consistent';
+import bus from '../../../helper/bus';
 
 export default {
   [FILTER_FILMS]: ({ dispatch, state }, payload) => {
@@ -29,12 +30,15 @@ export default {
       value: sort,
     });
   },
-  [GET_FILMS]: ({ commit }) => {
-    fetch('https://us-central1-lithe-window-713.cloudfunctions.net/frontendQuiz')
-      .then(response => response.json())
-      .then(({ data }) => {
-        commit(GET_FILMS_SUCCEED, data);
-      });
+  [GET_FILMS]: async ({ commit }) => {
+    // Can replace it with Promise
+    try {
+      const films = await bus.$api.getFilms();
+      commit(GET_FILMS_SUCCEED, films);
+    } catch (error) {
+      // Can replace this with show error notification bar.
+      console.error('Error happened when get films => ', error);
+    }
   },
   [SORT_FILMS]: ({ commit, state }, payload) => {
     const {
