@@ -68,25 +68,24 @@ export default {
       filterFilms: 'FILTER_FILMS',
       sortFilms: 'SORT_FILMS',
     }),
+    sortCurrentFilms(films = this.films, value) {
+      this.sortFilms({
+        films,
+        sortByAsc: false,
+        value,
+      });
+    },
   },
   watch: {
     sort(newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.sortFilms({
-          films: this.films,
-          sortByAsc: false,
-          value: newVal,
-        });
+        this.sortCurrentFilms(this.films, newVal);
       }
     },
     filterLength(newVal, oldVal) {
       if (newVal !== oldVal) {
         if (!newVal) {
-          this.sortFilms({
-            films: this.originFilms,
-            sortByAsc: false,
-            value: this.sort,
-          });
+          this.sortCurrentFilms(this.originFilms, this.sort);
           return;
         }
 
