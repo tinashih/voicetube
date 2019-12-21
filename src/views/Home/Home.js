@@ -95,6 +95,11 @@ export default {
         });
       }
     },
+    films(newVal, oldVal) {
+      if (newVal.length && !oldVal.length) {
+        this.sortCurrentFilms(newVal, this.sort);
+      }
+    },
   },
   name: 'home',
   created() {
