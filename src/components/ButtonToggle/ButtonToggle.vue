@@ -1,8 +1,9 @@
 <template>
-  <div class="button-toggle">
+  <div class="button-toggle" v-bind="buttonToggleProps">
     <span
       class="button-toggle__title"
       v-if="title"
+      v-bind="titleProps"
     >
       {{ title }}
     </span>
@@ -13,6 +14,7 @@
       :value="option.value"
       class="button-toggle__option"
       v-for="(option, index) in options"
+      v-bind="option.buttonProps"
     >
       {{ option.label }}
     </button>

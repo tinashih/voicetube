@@ -17,12 +17,14 @@ export default {
     },
   },
   props: {
+    buttonToggleProps: Object,
     options: {
       required: true,
       type: Array,
       validator: obj => obj.every(k => 'label' in k && 'value' in k),
     },
     title: String,
+    titleProps: Object,
     value: {
       required: true,
     },

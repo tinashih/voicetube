@@ -1,4 +1,11 @@
 export default {
+  computed: {
+    getLevelTagProps() {
+      return {
+        'data-qa': 'Content-Tag-Level',
+      };
+    },
+  },
   filters: {
     Caption(value) {
       switch (value) {
@@ -59,6 +66,11 @@ export default {
         timer = setTimeout(() => {
           cb();
         }, delay);
+      };
+    },
+    getCaptionTagProps(caption) {
+      return {
+        'data-qa': `Content-Tag-Caption-${caption}`,
       };
     },
   },

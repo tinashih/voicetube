@@ -25,41 +25,82 @@ export default {
       'films',
       'originFilms',
     ]),
+    getFilterButtonToggleProps() {
+      return {
+        'data-qa': 'Home-FilterButtonToggle',
+      };
+    },
     getFilterLengthOptions() {
       return [
         {
+          buttonProps: {
+            'data-qa': 'Home-FilterButtonToggle-Button-NoLimited',
+          },
           label: '不限',
           value: TIMES.NO_LIMITED,
         },
         {
+          buttonProps: {
+            'data-qa': 'Home-FilterButtonToggle-Button-UnderFourMinutes',
+          },
           label: '4分鐘以下',
           value: TIMES.UNDER_FOUR_MINUTES,
         },
         {
+          buttonProps: {
+            'data-qa': 'Home-FilterButtonToggle-Button-FiveToTenMinutes',
+          },
           label: '5 - 10分鐘',
           value: TIMES.FIVE_TO_TEN_MINUTES,
         },
         {
+          buttonProps: {
+            'data-qa': 'Home-FilterButtonToggle-Button-OverTenMinutes',
+          },
           label: '超過10分鐘',
           value: TIMES.OVER_TEN_MINUTES,
         },
       ];
     },
+    getFilterTitleProps() {
+      return {
+        'data-qa': 'Home-FilterButtonToggle-Title',
+      };
+    },
+    getSortButtonToggleProps() {
+      return {
+        'data-qa': 'Home-SortButtonToggle',
+      };
+    },
     getSortOptions() {
       return [
         {
+          buttonProps: {
+            'data-qa': `Home-SortButtonToggle-Button-${PUBLISH_TIME}`,
+          },
           label: '發布時間',
           value: PUBLISH_TIME,
         },
         {
+          buttonProps: {
+            'data-qa': `Home-SortButtonToggle-Button-${VIEWS}`,
+          },
           label: '觀看次數',
           value: VIEWS,
         },
         {
+          buttonProps: {
+            'data-qa': `Home-SortButtonToggle-Button-${COLLECT_COUNT}`,
+          },
           label: '收藏次數',
           value: COLLECT_COUNT,
         },
       ];
+    },
+    getSortTitleProps() {
+      return {
+        'data-qa': 'Home-SortButtonToggle-Title',
+      };
     },
   },
   methods: {

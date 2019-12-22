@@ -1,27 +1,50 @@
 <template>
   <div class="home">
-    <div class=filters>
+    <div
+      class=filters
+      data-qa="Content-Filters"
+    >
       <button-toggle
+        :buttonToggleProps="getSortButtonToggleProps"
+        :options="getSortOptions"
+        :titleProps="getSortTitleProps"
         title="排序"
         v-model="sort"
-        :options="getSortOptions"
       />
       <button-toggle
+        :buttonToggleProps="getFilterButtonToggleProps"
+        :options="getFilterLengthOptions"
+        :titleProps="getFilterTitleProps"
         title="長度"
         v-model="filterLength"
-        :options="getFilterLengthOptions"
       />
     </div>
-    <div class="divider" />
-    <div class="films" v-if="films && films.length">
+    <div
+      class="divider"
+      data-qa="Content-Divider"
+    />
+    <div
+      class="films"
+      data-qa="Content-Films"
+      v-if="films && films.length"
+    >
       <film
         :key="film.id"
         :film="film"
         v-for="film in films"
       />
     </div>
-    <div class="films" v-else>
-      <p class="no-data">沒有篩選結果</p>
+    <div
+      class="films"
+      data-qa="Content-Films"
+      v-else
+    >
+      <p
+        class="no-data"
+        data-qa="Content-Films-NoDataFound"
+      >
+        沒有篩選結果
+      </p>
     </div>
   </div>
 </template>

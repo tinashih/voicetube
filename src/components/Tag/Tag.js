@@ -9,6 +9,7 @@ export default {
   },
   props: {
     color: String,
+    tagProps: Object,
     textColor: String,
     label: {
       required: true,

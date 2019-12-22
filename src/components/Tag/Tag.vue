@@ -2,6 +2,7 @@
   <span
     :class="classes"
     class="tag"
+    v-bind="tagProps"
   >
     {{ label }}
   </span>
