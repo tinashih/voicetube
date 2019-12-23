@@ -1,5 +1,9 @@
 <template>
-  <div class="film" ref="film">
+  <div
+    :data-qa="`Content-Film-${film.id}`"
+    class="film"
+    ref="film"
+  >
     <card>
       <div class="content__top">
         <img
