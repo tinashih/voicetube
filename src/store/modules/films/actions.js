@@ -2,6 +2,7 @@ import {
   FILTER_FILMS,
   GET_FILMS,
   GET_FILMS_SUCCEED,
+  SET_LOADING_STATUS,
   SORT_FILMS,
   SORT_FILMS_DONE,
 } from './consistent';
@@ -31,14 +32,17 @@ export default {
     });
   },
   [GET_FILMS]: async ({ commit }) => {
+    commit(SET_LOADING_STATUS, true);
     // Can replace it with Promise
     try {
       const films = await bus.$api.getFilms();
       commit(GET_FILMS_SUCCEED, films);
+      commit(SET_LOADING_STATUS, false);
     } catch (error) {
       // Can replace this with show error notification bar.
       /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
       console.error('Error happened when get films => ', error);
+      commit(SET_LOADING_STATUS, false);
     }
   },
   [SORT_FILMS]: ({ commit, state }, payload) => {

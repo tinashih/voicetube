@@ -26,7 +26,7 @@
     <div
       class="films"
       data-qa="Content-Films"
-      v-if="films && films.length"
+      v-if="films && films.length && !loading"
     >
       <film
         :key="film.id"
@@ -37,7 +37,7 @@
     <div
       class="films"
       data-qa="Content-Films"
-      v-else
+      v-else-if="!(films && films.length) && !loading"
     >
       <p
         class="no-data"
@@ -46,6 +46,7 @@
         沒有篩選結果
       </p>
     </div>
+    <div class="loading" v-else />
   </div>
 </template>
 

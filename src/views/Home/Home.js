@@ -23,6 +23,7 @@ export default {
   computed: {
     ...mapState('films', [
       'films',
+      'loading',
       'originFilms',
     ]),
     getFilterButtonToggleProps() {

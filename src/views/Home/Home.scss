@@ -1,3 +1,12 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .home {
   align-items: center;
   display: flex;
@@ -29,5 +38,15 @@
 
   .filters {
     width: 100%;
+  }
+
+  .loading {
+    animation: spin 1s infinite linear;
+    border-radius: 50%;
+    border-top-color: #787878;
+    border: .25rem solid #EEEEEE;
+    height: 32px;
+    margin: 32px;
+    width: 32px;
   }
 }
