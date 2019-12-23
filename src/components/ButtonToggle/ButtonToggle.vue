@@ -7,17 +7,19 @@
     >
       {{ title }}
     </span>
-    <button
-      @click="setValue(option.value, option)"
-      :class="getOptionClasses(index)"
-      :key="index"
-      :value="option.value"
-      class="button-toggle__option"
-      v-for="(option, index) in options"
-      v-bind="option.buttonProps"
-    >
-      {{ option.label }}
-    </button>
+    <div class="button-toggle__toggles">
+      <button
+        @click="setValue(option.value, option)"
+        :class="getOptionClasses(index)"
+        :key="index"
+        :value="option.value"
+        class="button-toggle__option"
+        v-for="(option, index) in options"
+        v-bind="option.buttonProps"
+      >
+        {{ option.label }}
+      </button>
+    </div>
   </div>
 </template>
 
